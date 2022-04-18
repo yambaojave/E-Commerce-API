@@ -1,0 +1,81 @@
+APP - ECOMMERCE API
+
+Description: Allows a user to order a product. 
+Allows an admin to do CRUD operations on products.
+Allow us to register regular users.
+
+
+User
+firstName: String,
+lastName: String,
+Email: String(unique),
+MobileNo: String
+Address: [
+		{
+			City: String,
+			Street: String,
+			Unit: String,
+			MobileNo: String,
+			
+			Note: Pick by user
+			Home: boolean,	
+			Office: boolean
+		}
+	]
+wallet: number
+createdOn: Date,
+isAdmin: boolean
+		 Default: false
+
+
+Cart: 
+userId: String
+Cart: [
+	{
+		ProductId: String,
+		totalOrder: Number,
+		totalPrice: Number,
+		addToCartOn: Date,
+		status: String,
+		payment: String
+	}
+	ID: (objectID)
+]
+
+Note:
+	Address can have multiple pick to be stored in database for user to pick shipping address
+	User may also delete an address but must maintain one address.
+
+	If user is an admin there is no need for an adress or mobileNo.
+
+	Wallet is for a selection of payment
+
+
+Product
+
+Name: String,
+Description: String,
+Price: Number
+Stock: Number
+isActive: Boolean
+		  default: true
+createOn: Date,
+
+
+
+
+Order:
+
+UserId: String,
+ProductId: String,
+OrderedByUser: Number, // ordered stock of user
+StockOnHand: Number, // remaining stock of the productId	
+createdOn: Date,
+Status: String	// comming from the cart of user
+
+
+
+Cart:
+	User can delete cart_order
+
+
