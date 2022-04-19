@@ -19,7 +19,8 @@ router.post('/', auth.verify, (req, res) => {
 
 	let data = {
 		userId : auth.decode(req.headers.authorization).id,
-		isAdmin : auth.decode(req.headers.authorization).isAdmin
+		isAdmin : auth.decode(req.headers.authorization).isAdmin,
+		
 	}
 	console.log(data)
 

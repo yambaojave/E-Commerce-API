@@ -78,9 +78,3 @@ module.exports.getProfile = (data) => {
 	})
 }
 
-module.exports.getCart = (data) => {
-	console.log(data);
-	if(user.isAdmin === false) {
-		// return Cart.findById(data.)
-	}
-}

@@ -38,11 +38,7 @@ router.post('/details', auth.verify, (req, res) => {
 
 // Update Non-admin details
 
-router.get('/cart', auth.verify, (req, res) => {
-	const data = auth.decode(req.headers.autorization)
 
-	userController.getCart(data).then(resultFromController => res.send(resultFromController))
-})
 
 
 

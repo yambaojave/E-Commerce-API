@@ -15,7 +15,7 @@ router.post('/', auth.verify, (req,res) => {
 })
 
 // retreive all products
-router.get('/all', auth.verify, (req,res) => {
+router.post('/all', auth.verify, (req,res) => {
 	const data = auth.decode(req.headers.authorization)
 
 	productController.getAllProducts(data).then(resultFromController => res.send(resultFromController))

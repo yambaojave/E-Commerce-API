@@ -17,7 +17,7 @@ module.exports.addProduct = async(data) => {
 				return false;
 			}
 			else{
-				return `Product added ${product}`
+				return true
 			}
 		})
 
@@ -70,7 +70,7 @@ module.exports.updateProduct = (data) => {
 					return false
 				}
 				else{
-					return updatedProduct
+					return true
 				}
 			})
 		}
@@ -90,7 +90,7 @@ module.exports.archiveProduct = async (data) => {
 					return false
 				}
 				else {
-					return result;
+					return true;
 				}
 			})
 		})
@@ -112,7 +112,7 @@ module.exports.activateProduct = async (data) => {
 					return false
 				}
 				else {
-					return result;
+					return true;
 				}
 			})
 		})
