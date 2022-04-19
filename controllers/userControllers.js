@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const auth = require('../auth');
+const Cart = require('../models/Cart');
 
 
 // Check if email already exists within the database
@@ -75,4 +76,11 @@ module.exports.getProfile = (data) => {
 
 		return result;
 	})
+}
+
+module.exports.getCart = (data) => {
+	console.log(data);
+	if(user.isAdmin === false) {
+		// return Cart.findById(data.)
+	}
 }

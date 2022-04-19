@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Cart = require('../models/Cart');
 
 // import User Controllers
 const userController = require('../controllers/userControllers')
@@ -37,6 +38,11 @@ router.post('/details', auth.verify, (req, res) => {
 
 // Update Non-admin details
 
+router.get('/cart', auth.verify, (req, res) => {
+	const data = auth.decode(req.headers.autorization)
+
+	userController.getCart(data).then(resultFromController => res.send(resultFromController))
+})
 
 
 

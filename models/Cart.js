@@ -5,31 +5,26 @@ let cartSchema = new mongoose.Schema({
 		type: String,
 		required: [true, "User Id is required"]
 	},
-	cart: [{
-		productId: {
-			type: String,
-			required: [true, "Product Id is required"]
-		},
-		totalOrder: {
-			type: Number,
-			required: [true, "Total Stock order is required"]
-		},
-		totalPrice: {
-			type: Number,
-			required: [true, "Total Price is required"]
-		},
-		addToCartOn: {
-			type: Date,
-			default: new Date()
-		},
-		status: {
-			type: String,
-			default: 'pending'
-		},
-		payment: {
-			type: String,
-		}
-	}]
+	productId: {
+		type: String,
+		required: [true, "Product Id is required"]
+	},
+	totalOrder: {
+		type: Number,
+		required: [true, "Total Stock order is required"]
+	},
+	addToCartOn: {
+		type: Date,
+		default: new Date()
+	},
+	status: {
+		type: String,
+		default: 'pending'
+	},
+	payment: {
+		type: String,
+	}
+	
 
 })
 
