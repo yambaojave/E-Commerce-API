@@ -23,7 +23,7 @@ module.exports.addToCart = async (data) => {
 				return false;
 			}
 			else {
-				return `Cart added ${cart}`
+				return true;
 			};
 		});
 	}		
@@ -34,6 +34,46 @@ module.exports.getCart = (data) => {
 	if(data.isAdmin === false) {
 		return Cart.find({userId: data.userId}).then(result => {
 			return result
+		})
+	}
+	else {
+		return `Admin not authorized`
+	}
+}
+
+module.exports.deleteCartItem = (data) => {
+	console.log(data);
+
+	if(data.isAdmin === false) {
+		return Cart.deleteOne(data.id).then(result => {
+			return true
+		})
+	}
+	else {
+		return `Admin not authorized`
+	}
+}
+
+module.exports.updateQuantity = (data) => {
+	console.log(data);
+
+	if(data.isAdmin === false) {
+		return Cart.findById(data.cartId).then(result => {
+			console.log(result);
+			console.log(data.updatedQuantity.totalOrder);
+
+
+			result.totalOrder = data.updatedQuantity.totalOrder
+
+			console.log(result)
+			return result.save().then((updatedProduct, err) => {
+				if(err){
+					return false
+				}
+				else{
+					return true
+				}
+			})
 		})
 	}
 	else {

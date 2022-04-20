@@ -27,4 +27,28 @@ router.post('/', auth.verify, (req, res) => {
 	cartController.getCart(data).then(resultFromController => res.send(resultFromController))
 })
 
+router.put('/updateQuantity/:cartId', auth.verify, (req, res) => {
+
+	let data = {
+		userId : auth.decode(req.headers.authorization).id,
+		isAdmin : auth.decode(req.headers.authorization).isAdmin,
+		cartId: req.params.cartId,
+		updatedQuantity: req.body
+	}
+
+	cartController.updateQuantity(data).then(resultFromController => res.send(resultFromController))
+
+})
+
+router.delete('/deleteCartItem/:cartId', auth.verify, (req, res) => {
+	let data ={
+		userId : auth.decode(req.headers.authorization).id,
+		isAdmin : auth.decode(req.headers.authorization).isAdmin,
+		cartId: req.params.cartId,
+
+	}
+
+	cartController.deleteCartItem(data).then(resultFromController => res.send(resultFromController))
+})
+
 module.exports = router;

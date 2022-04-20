@@ -33,7 +33,7 @@
 // Server Routes
 	app.use('/users', userRoutes);
 	app.use('/cart', cartRoutes);
-	// app.use('/orders', orderRoutes);
+	app.use('/orders', orderRoutes);
 	app.use('/products', productRoutes);
 
 // Server Response

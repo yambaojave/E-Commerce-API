@@ -20,9 +20,11 @@ let cartSchema = new mongoose.Schema({
 	status: {
 		type: String,
 		default: 'pending'
+		// if checkOut not to be seen in cart
 	},
 	payment: {
 		type: String,
+		default: 'TBA'
 	}
 	
 

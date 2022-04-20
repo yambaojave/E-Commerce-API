@@ -13,10 +13,10 @@ let orderSchema = new mongoose.Schema({
 		type: Number,
 		required: [true, "Total ordered stock is required"]
 	},
-	stockOnHand: {
-		type: Number,
-		required: [true, "SOH by product is required"]
-	},
+	// stockOnHand: {
+	// 	type: Number,
+	// 	required: [true, "SOH by product is required"]
+	// },
 	payment: {
 		type: String,
 		required: [true, "Payment type is required"]
@@ -25,10 +25,13 @@ let orderSchema = new mongoose.Schema({
 		type: Date,
 		default: new Date()
 	},
-	status: {
-		type: String,
-		required: [true, "Status is required"]
+	totalPrice: {
+		type: Number
 	}
+	// status: {
+	// 	type: String,
+	// 	required: [true, "Status is required"]
+	// }
 
 })
 
