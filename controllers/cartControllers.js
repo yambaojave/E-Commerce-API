@@ -42,10 +42,10 @@ module.exports.getCart = (data) => {
 }
 
 module.exports.deleteCartItem = (data) => {
-	console.log(data);
+	console.log({id: data.cartId});
 
 	if(data.isAdmin === false) {
-		return Cart.deleteOne(data.id).then(result => {
+		return Cart.deleteOne({_id:data.cartId}).then(result => {
 			return true
 		})
 	}

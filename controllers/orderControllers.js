@@ -18,6 +18,8 @@ module.exports.checkOutRecord = async (data) => {
 			payment: data.payment
 		})
 
+		console.log(`This is the new ${newOrder}`);
+
 		return newOrder.save().then((order, err) => {
 			if(err){
 				return false
@@ -25,6 +27,19 @@ module.exports.checkOutRecord = async (data) => {
 			else{
 				return true
 			}
+		})
+	}
+}
+
+module.exports.getHistory = async (data) => {
+	console.log(data)
+
+	if(data.isAdmin === true) {
+		return `Regular use only`;
+	}
+	else {
+		return Order.find({userId: data.userId}).then(result => {
+			return result
 		})
 	}
 }

@@ -19,5 +19,14 @@ router.post('/checkOut/:cartId', auth.verify, (req, res) => {
 })
 
 
+router.post('/history', auth.verify, (req, res) => {
+	let data = {
+		userId : auth.decode(req.headers.authorization).id,
+		isAdmin : auth.decode(req.headers.authorization).isAdmin
+	}
+
+	orderController.getHistory(data).then(resultFromController => res.send(resultFromController))
+})
+
 
 module.exports = router;
